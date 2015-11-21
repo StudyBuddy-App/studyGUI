@@ -7,6 +7,8 @@ public class User {
 	String myFirstName;
 	String myLastName;
 	String mySchool;
+	String myUserName;
+	String myLocation;
 	Image myImage;
 	List<String> myClasses;
 	List<User> myFriends;
@@ -14,12 +16,21 @@ public class User {
 	
 	
 	public User(String theFirstName, String theLastName, String theSchool, Image theImage,
-				List<String> theClasses) {
+				List<String> theClasses, String theLocation) {
 		myFirstName = theFirstName;
 		myLastName = theLastName;
 		mySchool = theSchool;
 		myImage = theImage;
 		myClasses = new ArrayList<String>(theClasses);
+		myLocation = theLocation;
+	}
+	
+	public User(String fn, String ln, String un, String school, String l) {
+		myFirstName = fn;
+		myLastName = ln;
+		myUserName = un;
+		mySchool = school;
+		myLocation = l;
 	}
 	
 	public List<String> getClasses() {
@@ -58,4 +69,5 @@ public class User {
 			System.out.println("Friend already Removed!");
 		}
 	}
+
 }
