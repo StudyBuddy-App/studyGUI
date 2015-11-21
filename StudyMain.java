@@ -1,5 +1,9 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -129,11 +133,12 @@ public final class StudyMain {
 		JFrame myJFrame = new JFrame();
 
 		// create and assign a FlowLayout for myFrame
-		myJFrame.setLayout(new FlowLayout());
+		myJFrame.setLayout(new BorderLayout());
 
 		// Create a label with an image icon
 		JLabel jlCSCI = new JLabel(new ImageIcon("CSCI.jpg"));
-
+		JPanel feedPanel = new JPanel();
+		feedPanel.setLayout(new BoxLayout(feedPanel, BoxLayout.PAGE_AXIS));
 		// add the Label to the frame 
 		myJFrame.add(jlCSCI); // Add thelabel to MyGridLayout
 
@@ -142,23 +147,30 @@ public final class StudyMain {
 		myJFrame.setSize(240, 200);
 		myJFrame.setLocation(200, 100);
 		myJFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		// make the frame visible (activate the GUI frame)
 		myJFrame.setVisible(true);
 		String picture = "p";
 
+		JLabel friendLabel = new JLabel("Your suggested study buddies!");
+
+		friendLabel.setFont(new Font("Serif", Font.BOLD, 30));
+		friendLabel.setForeground(Color.WHITE);
+		myJFrame.add(friendLabel, BorderLayout.NORTH);
+		
 		for (int i = 0; i < theUser.myFriends.size(); i++)
 		{
 
 		    String filep = picture + i + ".jpg";
 		    ImageIcon imageIcon = new ImageIcon(filep);
 		    Image image = imageIcon.getImage(); // transform it
-		    Image newimg = image.getScaledInstance(300, 300,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way 
+		    Image newimg = image.getScaledInstance(200, 200,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way 
 		    imageIcon = new ImageIcon(newimg);  // transform it back
 
 
 		    JLabel label = new JLabel(theUser.myFriends.get(i).getFirstName() + " " 
-		    		+ theUser.myFriends.get(i).getLastName() + " ", imageIcon, SwingConstants.RIGHT);
+		    		+ theUser.myFriends.get(i).getLastName() + "    " +
+		    		theUser.myFriends.get(i).myClasses + "     "
+		    		, imageIcon, SwingConstants.CENTER);
 		    if(i == 0) {
 		      label.addMouseListener(new MouseAdapter() {
 		         public void mouseClicked(MouseEvent me) {
@@ -181,7 +193,13 @@ public final class StudyMain {
 		         }
 		      });
 		    }
-		    myJFrame.add(label);
+		    myJFrame.getContentPane().setBackground(new Color(62, 92, 154));
+		    label.setForeground(Color.WHITE);
+//		    myJFrame.add(label);
+		    feedPanel.setBackground(new Color(62, 92, 154));
+		    feedPanel.add(label);
+		    myJFrame.add(feedPanel);
+		    myJFrame.pack();
 		}
 	}    
 }
