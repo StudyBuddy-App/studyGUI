@@ -31,22 +31,30 @@ public class StudyGUI {
 
 	private static final Toolkit KIT = Toolkit.getDefaultToolkit();
 	public List<User> myAllUsers;
+	public List<String> myClasses;
 
 
 	//	private static final Dimension SCREEN_SIZE = KIT.getScreenSize();
 
 
-    public StudyGUI(ArrayList<User> theUsers, List<String> theClasses) {
-    	myFrame = new JFrame("Study Buddies");
-    	myAllUsers = theUsers;
-    	JPanel homePanel = new JPanel(new GridLayout());
+	public StudyGUI(ArrayList<User> theUsers, List<String> theClasses) {
+		myFrame = new JFrame("Study Buddies");
+		myAllUsers = theUsers;
+		myClasses = theClasses;
+		JPanel homePanel = new JPanel(new GridLayout(3, 3, 3, 3));
+		JLabel name = new JLabel(myAllUsers.get(0).getFirstName() + " " + myAllUsers.get(0).getLastName());
+		homePanel.add(name);
 		homePanel.setVisible(true);
-		homePanel.setPreferredSize(new Dimension(1, 500));
+		homePanel.setPreferredSize(new Dimension(500, 500));
 		myFrame.add(homePanel, BorderLayout.CENTER);
 
 		JOptionPane login = new JOptionPane();
 		login.showConfirmDialog(homePanel, "Login");
 		myFrame.add(login);
+	}
+	
+	public void homePage() {
+		
 	}
 
 	public void userInfo() {
@@ -54,12 +62,14 @@ public class StudyGUI {
 		JTextField firstName = new JTextField(5);
 		JTextField lastName = new JTextField(5);
 		JTextField userName = new JTextField(5);
-		JTextField schoolName = new JTextField(15);
+		JTextField schoolName = new JTextField(5);
 		JTextField location = new JTextField(5);
+		JTextField classes = new JTextField(5);
 
 
 
 		JPanel myPanel = new JPanel();
+		JPanel classNames = new JPanel();
 
 		myPanel.add(new JLabel("First Name:"));
 		myPanel.add(firstName);
@@ -75,6 +85,21 @@ public class StudyGUI {
 		myPanel.add(Box.createVerticalStrut(15));
 		myPanel.add(new JLabel("Current Location:"));
 		myPanel.add(location);
+		myPanel.add(Box.createVerticalStrut(15));
+		myPanel.add(new JLabel("Number of Classes:"));
+		myPanel.add(classes);
+		String number = classes.getText();
+		int count = Integer.parseInt(number);
+		for(int i = 0; i < count; i++) {
+			JTextField classID = new JTextField(5);
+			classNames.add(new JLabel("Class number " + i + ": Course ID"));
+			classNames.add(classID);
+			myClasses.add(classID.getText());
+			
+			
+			
+			
+		}
 
 		int result = JOptionPane.showConfirmDialog(null, myPanel, 
 				"Please Fill in all information", JOptionPane.OK_CANCEL_OPTION);
@@ -83,6 +108,7 @@ public class StudyGUI {
 					schoolName.getText(), location.getText());
 			myAllUsers.add(createNew);
 		}
+		JOptionPane.showConfirmDialog(null, classNames, "Please Fill in classes", JOptionPane.OK_OPTION);
 		myFrame.pack();
 	}
 

@@ -43,6 +43,14 @@ public class User {
 		myLastName = theLN;
 	}
 	
+	public String getFirstName() {
+		return myFirstName;
+	}
+	
+	public String getLastName() {
+		return myLastName;
+	}
+	
 	public void setSchool(String school) {
 		mySchool = school;
 	}
