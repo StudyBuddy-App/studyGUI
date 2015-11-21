@@ -36,7 +36,7 @@ public final class StudyMain {
                 final StudyGUI gui = new StudyGUI(myUserList, myClassList);
 //                gui.start();
                 
-                System.out.println(myUserList);
+//                System.out.println(myUserList);
                 outputUsers(userFile, myUserList);
             }
         });
@@ -49,20 +49,24 @@ public final class StudyMain {
     	try {
 	        Scanner s = new Scanner(theFile);
 	        while (s.hasNext()) {
+	        	theClasses.clear();
 	        	String userName = s.next();
 	        	String firstName = s.next();
 	        	String lastName = s.next();
 	        	String school = s.next();
 	        	String location = s.next();
-//	        	int numClasses = s.nextInt();
-//	        	for(int i = 0; i < numClasses; i++) {
-//	        		theClasses.add(s.next());
-//	        	}
-//	        	int numConnections = s.nextInt();
-//	        	for(int i = 0; i < numConnections; i++) {
-//	        		theConnections.add(s.nextLine());
-//	        	}
-	        	theUsers.add(new User(userName, firstName, lastName, school, location)); 	
+	        	int numClasses = s.nextInt();
+	        	for(int i = 0; i < numClasses; i++) {
+	        		theClasses.add(s.next());
+	        	}
+	        	User newUser = new User(userName, firstName, lastName, school, location);
+	        	newUser.setClasses(theClasses);
+	        	
+//	        	System.out.println(newUser.myUserName + " " + newUser.getClasses());
+	        	
+	        	theUsers.add(newUser);
+	        	
+
 	        }
 		}	    catch (FileNotFoundException e) {
 	        e.printStackTrace();
@@ -75,10 +79,14 @@ public final class StudyMain {
     			if(user.mySchool.equals(otherUser.mySchool) && !user.equals(otherUser)) {
     				user.myFriends.add(otherUser);
     			}
+    			
     		}
+    		
     	}
     	
-    	System.out.println(theUsers.get(0).myFriends);
+//    	System.out.println(theUsers.get(0).myFriends);
+//    	System.out.println(theUsers.get(0).getClasses());
+
     }
     
     public static void outputUsers(File theFile, ArrayList<User> theUsers) {
@@ -97,6 +105,10 @@ public final class StudyMain {
 			User user = theUsers.get(i);
 			out.print(user.myUserName + " " + user.myFirstName + " " + user.myLastName + " " +
 			user.mySchool + " "+ user.myLocation);
+			out.print(" " + user.getClasses().size());
+			for(int j = 0; j < user.getClasses().size(); j++) {
+				out.print(" " + user.getClasses().get(j));
+			}
 			out.println();
 		}
 		
