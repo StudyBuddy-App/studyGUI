@@ -178,7 +178,7 @@ public class StudyGUI {
 				if(myAllUsers.get(i).myUserName.equals(logOnAttempt)) {
 					logOn = true;
 					System.out.println("Login Successful! Welcome to StudyBuddy!");
-			        StudyMain.displayUsers();
+			        StudyMain.displayUsers(myAllUsers.get(i));
 				}
 			}
 			//user name is not registered 
