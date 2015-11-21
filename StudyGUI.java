@@ -31,14 +31,14 @@ public class StudyGUI {
 
 	private static final Toolkit KIT = Toolkit.getDefaultToolkit();
 	public List<User> myAllUsers;
-	public List<String> myClasses;
+	public ArrayList<String> myClasses;
 	private int classNum;
 
 
 	//	private static final Dimension SCREEN_SIZE = KIT.getScreenSize();
 
 
-	public StudyGUI(ArrayList<User> theUsers, List<String> theClasses) {
+	public StudyGUI(ArrayList<User> theUsers, ArrayList<String> theClasses) {
    /*
 		myFrame = new JFrame("Study Buddies");
 		myAllUsers = theUsers;
@@ -114,28 +114,34 @@ public class StudyGUI {
 		myPanel.add(new JLabel("Number of Classes:"));
 		myPanel.add(classes);
 		
-		
+		User createNew = null;
 	//	classNum = Integer.parseInt(number);
 
 		int result = JOptionPane.showConfirmDialog(null, myPanel, 
 				"Please Fill in all information", JOptionPane.OK_CANCEL_OPTION);
 		if (result == JOptionPane.OK_OPTION) {
-			User createNew = new User(userName.getText(), firstName.getText(), lastName.getText(),
+			createNew = new User(userName.getText(), firstName.getText(), lastName.getText(),
 					schoolName.getText(), location.getText());
 			myAllUsers.add(createNew);
 		}
 		String num = classes.getText();
 		int count = Integer.parseInt(num);
-		for(int i = 1; i <= count; i++) {
+//		for(int i = 1; i <= count; i++) {
 			JTextField classID = new JTextField(5);
 			classNames.add(new JLabel("Class number"));
 			classNames.add(classID);
-			String class1 = classID.getText();
-			myClasses.add(class1);	
-		}
+
+//			myClasses.add(class1);	
+//			System.out.println(myClasses);
+//		}
+		
+		createNew.setClasses(myClasses);
 		JOptionPane.showConfirmDialog(null, classNames, "Please Fill in classes", JOptionPane.OK_OPTION);
+		System.out.println("The class: " + classID.getText());
+		//		myClasses.clear();
 		myFrame.pack();
 	}
+	
 
 
 
@@ -185,12 +191,4 @@ public class StudyGUI {
 	}
 
 
-<<<<<<< HEAD
 }
-=======
-}
-
-
-
-
->>>>>>> 7c37b87914b22cdef2bd3237324b68b49e1b81d8
