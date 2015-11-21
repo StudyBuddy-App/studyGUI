@@ -33,7 +33,7 @@ public final class StudyMain {
         		ArrayList<String> myConnections = new ArrayList<String>();
                 loadUsers(userFile, myConnections, myClassList, myUserList);                
                 
-                final StudyGUI gui = new StudyGUI(myUserList);
+                final StudyGUI gui = new StudyGUI(myUserList, myClassList);
 //                gui.start();
                 
                 System.out.println(myUserList);

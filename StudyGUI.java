@@ -36,7 +36,7 @@ public class StudyGUI {
 	//	private static final Dimension SCREEN_SIZE = KIT.getScreenSize();
 
 
-    public StudyGUI(ArrayList<User> theUsers) {
+    public StudyGUI(ArrayList<User> theUsers, List<String> theClasses) {
     	myFrame = new JFrame("Study Buddies");
     	myAllUsers = theUsers;
     	JPanel homePanel = new JPanel(new GridLayout());

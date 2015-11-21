@@ -35,6 +35,10 @@ public class User {
 		myFirstName = theFN;
 	}
 	
+	public void setClasses(ArrayList<String> theClasses) {
+		myClasses = theClasses;
+	}
+	
 	public void setLastname(String theLN) {
 		myLastName = theLN;
 	}
