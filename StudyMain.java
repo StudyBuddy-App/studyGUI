@@ -23,7 +23,7 @@ public final class StudyMain {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-//                final StudyGUI gui = new StudyGUI();
+
                 
 //                User user = new User(null, null, null, null, null);
                 File userFile = new File("./users.txt");
@@ -32,7 +32,7 @@ public final class StudyMain {
         		ArrayList<String> myConnections = new ArrayList<String>();
                 loadUsers(userFile, myConnections, myClassList, myUserList);                
                 
-                
+                final StudyGUI gui = new StudyGUI(myUserList);
 //                gui.start();
             }
         });

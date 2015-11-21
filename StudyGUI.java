@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -27,7 +28,7 @@ public class StudyGUI {
 //	private static final Dimension SCREEN_SIZE = KIT.getScreenSize();
 
 	
-    public StudyGUI() {
+    public StudyGUI(ArrayList<User> theUsers) {
     	myFrame = new JFrame("Study Buddies");
     	myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        myFrame.setLocation(SCREEN_SIZE.width / 2 - myFrame.getWidth() / 2,
