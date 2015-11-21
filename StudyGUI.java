@@ -63,6 +63,13 @@ public class StudyGUI {
 		homePanel.setPreferredSize(new Dimension(1, 500));
 		myFrame.add(homePanel, BorderLayout.CENTER);
 
+
+		/*
+		JOptionPane login = new JOptionPane();
+		login.showConfirmDialog(homePanel, "Login");
+		myFrame.add(login);      
+      */
+      
 		/*
 		JOptionPane login = new JOptionPane();
 		login.showConfirmDialog(homePanel, "Login");
@@ -178,4 +185,12 @@ public class StudyGUI {
 	}
 
 
+<<<<<<< HEAD
 }
+=======
+}
+
+
+
+
+>>>>>>> 7c37b87914b22cdef2bd3237324b68b49e1b81d8
