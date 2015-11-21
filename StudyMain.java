@@ -62,11 +62,23 @@ public final class StudyMain {
 //	        	for(int i = 0; i < numConnections; i++) {
 //	        		theConnections.add(s.nextLine());
 //	        	}
-	        	theUsers.add(new User(userName, firstName, lastName, school, location));
+	        	theUsers.add(new User(userName, firstName, lastName, school, location)); 	
 	        }
 		}	    catch (FileNotFoundException e) {
 	        e.printStackTrace();
 	    }
+    	
+    	for(int i = 0; i < theUsers.size(); i++) {
+    		User user = theUsers.get(i); 
+    		for(int j = 0; j < theUsers.size(); j++) {
+    			User otherUser = theUsers.get(j);
+    			if(user.mySchool.equals(otherUser.mySchool) && !user.equals(otherUser)) {
+    				user.myFriends.add(otherUser);
+    			}
+    		}
+    	}
+    	
+    	System.out.println(theUsers.get(0).myFriends);
     }
     
     public static void outputUsers(File theFile, ArrayList<User> theUsers) {

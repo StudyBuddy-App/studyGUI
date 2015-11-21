@@ -17,6 +17,7 @@ public class User {
 	
 	public User(String theUserName, String theFirstName, String theLastName, String theSchool,
 				String theLocation) {
+		myFriends = new ArrayList<User>();
 		myUserName = theUserName;
 		myFirstName = theFirstName;
 		myLastName = theLastName;
