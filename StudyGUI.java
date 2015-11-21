@@ -120,7 +120,7 @@ public class StudyGUI {
 	//	classNum = Integer.parseInt(number);
 
 		int result = JOptionPane.showConfirmDialog(null, myPanel, 
- 				"Please Fill in all information", JOptionPane.OK_CANCEL_OPTION);
+				"Please Fill in all information", JOptionPane.OK_CANCEL_OPTION);
 		if (result == JOptionPane.OK_OPTION) {
 			createNew = new User(userName.getText(), firstName.getText(), lastName.getText(),
 					schoolName.getText(), location.getText());
@@ -140,6 +140,7 @@ public class StudyGUI {
 	//		classID.setText("");
 //			System.out.println(myClasses);
 		}
+        StudyMain.displayUsers();
 		
 	//	createNew.setClasses(myClasses);
 		myFrame.pack();
@@ -165,7 +166,8 @@ public class StudyGUI {
 			for(int i = 0; i < myAllUsers.size(); i++) {
 				if(myAllUsers.get(i).myUserName.equals(logOnAttempt)) {
 					logOn = true;
-					System.out.println("Logon Succesful, user found in userbase");
+					System.out.println("Login Succesful, user found in userbase");
+			        StudyMain.displayUsers();
 				}
 			}
 			//user name is not registered 

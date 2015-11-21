@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
    
 
+
+
 import javax.swing.*;
 
 import java.awt.event.*;
@@ -50,7 +52,7 @@ public final class StudyMain {
         
         
         //requires photos named p1.jpg , p2.jpg, p0.jpg
-        displayUsers();
+     //   displayUsers();
         
  
     }
@@ -89,9 +91,14 @@ public final class StudyMain {
     			if(user.mySchool.equals(otherUser.mySchool) && !user.equals(otherUser)) {
     				user.myFriends.add(otherUser);
     			}
+    			
     		}
+    		
     	}
-    	System.out.println(theUsers.get(2).myFriends);
+    	
+//    	System.out.println(theUsers.get(0).myFriends);
+//    	System.out.println(theUsers.get(0).getClasses());
+
     }
     
     public static void outputUsers(File theFile, ArrayList<User> theUsers) {
@@ -116,7 +123,7 @@ public final class StudyMain {
 			}
 			out.println();
 		}
-		System.exit(0); 
+		//System.exit(0); 
     }
     
     public static void displayUsers() {
@@ -176,6 +183,5 @@ public final class StudyMain {
 		    }
 		    myJFrame.add(label);
 		}
-	}
-    
+	}    
 }

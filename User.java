@@ -1,9 +1,6 @@
 import java.awt.Image;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 
 public class User {
@@ -15,7 +12,6 @@ public class User {
 	Image myImage;
 	List<String> myClasses;
 	List<User> myFriends;
-//	Map<User, Integer> myFriends;
 	
 	
 	
@@ -71,14 +67,14 @@ public class User {
 		myFriends.add(friend);
 	}
 	
-//	public void removeFriend(User friend) {
-//		if (myFriends.contains(friend)) {
-//			int i = myFriends.indexOf(friend);
-//			myFriends.remove(i);
-//		} else {
-//			System.out.println("Friend already Removed!");
-//		}
-//	}
+	public void removeFriend(User friend) {
+		if (myFriends.contains(friend)) {
+			int i = myFriends.indexOf(friend);
+			myFriends.remove(i);
+		} else {
+			System.out.println("Friend already Removed!");
+		}
+	}
 	
 	public String toString() {
 		return myFirstName + " " + myLastName;
