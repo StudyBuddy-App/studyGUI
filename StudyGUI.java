@@ -30,13 +30,15 @@ public class StudyGUI {
 	private final JFrame myFrame;
 	
 	private static final Toolkit KIT = Toolkit.getDefaultToolkit();
-	public List<User> allUsers;
+	public List<User> myAllUsers;
 
 
 	//	private static final Dimension SCREEN_SIZE = KIT.getScreenSize();
 
 
     public StudyGUI(ArrayList<User> theUsers) {
+    	myFrame = new JFrame("Study Buddies");
+    	myAllUsers = theUsers;
     	JPanel homePanel = new JPanel(new GridLayout());
 		homePanel.setVisible(true);
 		homePanel.setPreferredSize(new Dimension(1, 500));
@@ -76,7 +78,7 @@ public class StudyGUI {
 		if (result == JOptionPane.OK_OPTION) {
 			User createNew = new User(userName.getText(), firstName.getText(), lastName.getText(),
 										schoolName.getText(), location.getText());
-			allUsers.add(createNew);
+			myAllUsers.add(createNew);
 		}
 		myFrame.pack();
 	}
@@ -100,11 +102,13 @@ public class StudyGUI {
         			"Enter your log in", "or desired logon");
         	
         	//user name is registered already
-        	if(myUserList.getUserNames.contains(logOnAttempt)) {
-        		logOn = true;        		
+        	for(int i = 0; i < myAllUsers.size(); i++) {
+        		if(myAllUsers.get(i).myUserName.equals(logOnAttempt)) {
+        			logOn = true;
+        		}
         	}
         	//user name is not registered 
-        	else {
+        	if(!logOn) {
         		int response;
         		//ask user if they are registered with yes no dialog
         		response = JOptionPane.showConfirmDialog(null,
