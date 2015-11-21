@@ -32,12 +32,14 @@ public class StudyGUI {
 	private static final Toolkit KIT = Toolkit.getDefaultToolkit();
 	public List<User> myAllUsers;
 	public List<String> myClasses;
+	private int classNum;
 
 
 	//	private static final Dimension SCREEN_SIZE = KIT.getScreenSize();
 
 
 	public StudyGUI(ArrayList<User> theUsers, List<String> theClasses) {
+   /*
 		myFrame = new JFrame("Study Buddies");
 		myAllUsers = theUsers;
 		myClasses = theClasses;
@@ -47,10 +49,27 @@ public class StudyGUI {
 		homePanel.setVisible(true);
 		homePanel.setPreferredSize(new Dimension(500, 500));
 		myFrame.add(homePanel, BorderLayout.CENTER);
+     
 
 		JOptionPane login = new JOptionPane();
 		login.showConfirmDialog(homePanel, "Login");
+		myFrame.add(login);      
+      */
+      
+		myFrame = new JFrame("Study Buddies");
+		myAllUsers = theUsers;
+		myClasses = theClasses;
+		JPanel homePanel = new JPanel(new GridLayout());
+		homePanel.setVisible(true);
+		homePanel.setPreferredSize(new Dimension(1, 500));
+		myFrame.add(homePanel, BorderLayout.CENTER);
+
+		/*
+		JOptionPane login = new JOptionPane();
+		login.showConfirmDialog(homePanel, "Login");
 		myFrame.add(login);
+		*/
+		demoInputDialog();
 	}
 	
 	public void homePage() {
@@ -88,18 +107,9 @@ public class StudyGUI {
 		myPanel.add(Box.createVerticalStrut(15));
 		myPanel.add(new JLabel("Number of Classes:"));
 		myPanel.add(classes);
-		String number = classes.getText();
-		int count = Integer.parseInt(number);
-		for(int i = 0; i < count; i++) {
-			JTextField classID = new JTextField(5);
-			classNames.add(new JLabel("Class number " + i + ": Course ID"));
-			classNames.add(classID);
-			myClasses.add(classID.getText());
-			
-			
-			
-			
-		}
+		
+		
+	//	classNum = Integer.parseInt(number);
 
 		int result = JOptionPane.showConfirmDialog(null, myPanel, 
 				"Please Fill in all information", JOptionPane.OK_CANCEL_OPTION);
@@ -107,6 +117,15 @@ public class StudyGUI {
 			User createNew = new User(userName.getText(), firstName.getText(), lastName.getText(),
 					schoolName.getText(), location.getText());
 			myAllUsers.add(createNew);
+		}
+		String num = classes.getText();
+		int count = Integer.parseInt(num);
+		for(int i = 1; i <= count; i++) {
+			JTextField classID = new JTextField(5);
+			classNames.add(new JLabel("Class number"));
+			classNames.add(classID);
+			String class1 = classID.getText();
+			myClasses.add(class1);	
 		}
 		JOptionPane.showConfirmDialog(null, classNames, "Please Fill in classes", JOptionPane.OK_OPTION);
 		myFrame.pack();
@@ -116,12 +135,6 @@ public class StudyGUI {
 
 
 
-	/*
-	 * demoInputDialog() uses a joption pane to check for a valid Username. 
-	 * If the username is invalid (not in the list) then the user must is
-	 * notified and must repeat the process of logging in (after an error box). 
-	 * The user is given the ability to sign up if they dont yet have an account.
-	 */
 	public void demoInputDialog() {
 
 		boolean logOn = false; //what the user types is in as guess..valid user = true
@@ -129,11 +142,15 @@ public class StudyGUI {
 		while(!logOn) {
 			final String logOnAttempt = JOptionPane.showInputDialog(null,
 					"Enter your log in", "or desired logon");
+			if(logOnAttempt ==null) {
+				System.exit(0);
+			}
 
 			//user name is registered already
 			for(int i = 0; i < myAllUsers.size(); i++) {
 				if(myAllUsers.get(i).myUserName.equals(logOnAttempt)) {
 					logOn = true;
+					System.out.println("Logon Succesful, user found in userbase");
 				}
 			}
 			//user name is not registered 
@@ -155,11 +172,11 @@ public class StudyGUI {
 					logOn = true;
 				}
 			}
+			System.out.println("Looping");
 		}
 		//user must be logged on here...go on to splash page
 
 	}
-
 
 
 }
