@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
@@ -21,6 +22,7 @@ import javax.swing.Timer;
 public class StudyGUI {
 	
 	private final JFrame myFrame;
+	
 	private static final Toolkit KIT = Toolkit.getDefaultToolkit();
 
 	
@@ -46,4 +48,48 @@ public class StudyGUI {
         
         myFrame.pack();
     }
+    
+    
+    
+    /*
+     * demoInputDialog() uses a joption pane to check for a valid Username. 
+     * If the username is invalid (not in the list) then the user must is
+     * notified and must repeat the process of logging in (after an error box). 
+     * The user is given the ability to sign up if they dont yet have an account.
+     */
+    public void demoInputDialog() {
+    	
+        boolean logOn = false; //what the user types is in as guess..valid user = true
+        //loop until valid input
+        while(!logOn) {
+        	final String logOnAttempt = JOptionPane.showInputDialog(null,
+        			"Enter your log in", "or desired logon");
+        	
+        	//user name is registered already
+        	if(myUserList.getUserNames.contains(logOnAttempt)) {
+        		logOn = true;        		
+        	}
+        	//user name is not registered 
+        	else {
+        		int response;
+        		//ask user if they are registered with yes no dialog
+        		response = JOptionPane.showConfirmDialog(null,
+        				"Are you registered", null, JOptionPane.YES_NO_OPTION);
+        		//user misspelled logon
+        		if(response == JOptionPane.YES_OPTION) {
+        			//do nothing
+        		}
+        		//sign the new user up
+        		else {
+        			//call new user GUI.
+        			//get info in this method.
+        			//add the new user to  the list of users / user information class
+        			logOn = true;
+        		}
+        	}
+        }
+        //user must be logged on here...go on to splash page
+        
+    }
+
 }
