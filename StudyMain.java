@@ -1,4 +1,6 @@
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Image;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
@@ -87,14 +89,9 @@ public final class StudyMain {
     			if(user.mySchool.equals(otherUser.mySchool) && !user.equals(otherUser)) {
     				user.myFriends.add(otherUser);
     			}
-    			
     		}
-    		
     	}
-    	
-//    	System.out.println(theUsers.get(0).myFriends);
-//    	System.out.println(theUsers.get(0).getClasses());
-
+    	System.out.println(theUsers.get(2).myFriends);
     }
     
     public static void outputUsers(File theFile, ArrayList<User> theUsers) {
@@ -119,7 +116,7 @@ public final class StudyMain {
 			}
 			out.println();
 		}
-		//System.exit(0); 
+		System.exit(0); 
     }
     
     public static void displayUsers() {
@@ -179,5 +176,6 @@ public final class StudyMain {
 		    }
 		    myJFrame.add(label);
 		}
-	}    
+	}
+    
 }
