@@ -93,7 +93,6 @@ public final class StudyMain {
     			}
     			
     		}
-    		
     	}
     	
 //    	System.out.println(theUsers.get(0).myFriends);
@@ -126,7 +125,7 @@ public final class StudyMain {
 		//System.exit(0); 
     }
     
-    public static void displayUsers() {
+    public static void displayUsers(User theUser) {
 		JFrame myJFrame = new JFrame();
 
 		// create and assign a FlowLayout for myFrame
@@ -148,7 +147,7 @@ public final class StudyMain {
 		myJFrame.setVisible(true);
 		String picture = "p";
 
-		for (int i = 0; i < 3; i++)
+		for (int i = 0; i < theUser.myFriends.size(); i++)
 		{
 
 		    String filep = picture + i + ".jpg";
@@ -158,7 +157,8 @@ public final class StudyMain {
 		    imageIcon = new ImageIcon(newimg);  // transform it back
 
 
-		    JLabel label = new JLabel("UserName" + i, imageIcon, SwingConstants.RIGHT);
+		    JLabel label = new JLabel(theUser.myFriends.get(i).getFirstName() + " " 
+		    		+ theUser.myFriends.get(i).getLastName() + " ", imageIcon, SwingConstants.RIGHT);
 		    if(i == 0) {
 		      label.addMouseListener(new MouseAdapter() {
 		         public void mouseClicked(MouseEvent me) {

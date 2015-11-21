@@ -125,6 +125,17 @@ public class StudyGUI {
 			createNew = new User(userName.getText(), firstName.getText(), lastName.getText(),
 					schoolName.getText(), location.getText());
 			myAllUsers.add(createNew);
+			
+	    		for(int j = 0; j < myAllUsers.size(); j++) {
+	    			User otherUser = myAllUsers.get(j);
+	    			if(createNew.mySchool.equals(otherUser.mySchool) && !createNew.equals(otherUser)) {
+	    				createNew.myFriends.add(otherUser);
+	    			}
+	    		}
+	    		
+	    		System.out.println(createNew.myFriends);
+	    		
+			
 		}
 		String num = classes.getText();
 		int count = Integer.parseInt(num);
@@ -140,7 +151,7 @@ public class StudyGUI {
 	//		classID.setText("");
 //			System.out.println(myClasses);
 		}
-        StudyMain.displayUsers();
+        StudyMain.displayUsers(createNew);
 		
 	//	createNew.setClasses(myClasses);
 		myFrame.pack();
@@ -167,7 +178,7 @@ public class StudyGUI {
 				if(myAllUsers.get(i).myUserName.equals(logOnAttempt)) {
 					logOn = true;
 					System.out.println("Login Succesful, user found in userbase");
-			        StudyMain.displayUsers();
+			        StudyMain.displayUsers(myAllUsers.get(i));
 				}
 			}
 			//user name is not registered 
