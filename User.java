@@ -13,13 +13,13 @@ public class User {
 	
 	
 	
-	public User(String theFirstName, String theLastName, String theSchool, Image theImage,
-				List<String> theClasses) {
+	public User(String theFirstName, String theLastName, String theSchool, String string,
+				String string2) {
 		myFirstName = theFirstName;
 		myLastName = theLastName;
 		mySchool = theSchool;
-		myImage = theImage;
-		myClasses = new ArrayList<String>(theClasses);
+//		myImage = string;
+		myClasses = new ArrayList<String>();
 	}
 	
 	public List<String> getClasses() {

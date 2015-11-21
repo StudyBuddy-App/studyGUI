@@ -54,7 +54,7 @@ public final class StudyMain {
 	        	for(int i = 0; i < numConnections; i++) {
 	        		theConnections.add(s.nextLine());
 	        	}
-	        	theUsers.add(new User(firstName, lastName, school, null, theClasses));
+//	        	theUsers.add(new User(firstName, lastName, school, null, theClasses));
 	        }
 		}	    catch (FileNotFoundException e) {
 	        e.printStackTrace();
