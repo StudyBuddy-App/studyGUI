@@ -119,7 +119,7 @@ public final class StudyMain {
 			}
 			out.println();
 		}
-		System.exit(0); 
+		//System.exit(0); 
     }
     
     public static void displayUsers() {
@@ -179,6 +179,5 @@ public final class StudyMain {
 		    }
 		    myJFrame.add(label);
 		}
-	}
-    
+	}    
 }
