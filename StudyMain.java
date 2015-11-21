@@ -4,6 +4,11 @@ import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
+   
+
+import javax.swing.*;
+
+import java.awt.event.*;
 
 public final class StudyMain {
 
@@ -40,6 +45,10 @@ public final class StudyMain {
                 outputUsers(userFile, myUserList);
             }
         });
+        
+        
+        //requires photos named p1.jpg , p2.jpg, p0.jpg
+        displayUsers();
         
  
     }
@@ -113,5 +122,63 @@ public final class StudyMain {
 		System.exit(0); 
     }
     
+    public static void displayUsers() {
+		JFrame myJFrame = new JFrame();
+
+		// create and assign a FlowLayout for myFrame
+		myJFrame.setLayout(new FlowLayout());
+
+		// Create a label with an image icon
+		JLabel jlCSCI = new JLabel(new ImageIcon("CSCI.jpg"));
+
+		// add the Label to the frame 
+		myJFrame.add(jlCSCI); // Add thelabel to MyGridLayout
+
+		// set the title, size, location and exit behavior for the frame
+		myJFrame.setTitle("ImageIcon Demo");
+		myJFrame.setSize(240, 200);
+		myJFrame.setLocation(200, 100);
+		myJFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		// make the frame visible (activate the GUI frame)
+		myJFrame.setVisible(true);
+		String picture = "p";
+
+		for (int i = 0; i < 3; i++)
+		{
+
+		    String filep = picture + i + ".jpg";
+		    ImageIcon imageIcon = new ImageIcon(filep);
+		    Image image = imageIcon.getImage(); // transform it
+		    Image newimg = image.getScaledInstance(300, 300,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way 
+		    imageIcon = new ImageIcon(newimg);  // transform it back
+
+
+		    JLabel label = new JLabel("UserName" + i, imageIcon, SwingConstants.RIGHT);
+		    if(i == 0) {
+		      label.addMouseListener(new MouseAdapter() {
+		         public void mouseClicked(MouseEvent me) {
+		            //call view(username1)
+		            System.out.println("CLICKED");
+		         }
+		      });
+		    } else if ( i== 1) {
+		    label.addMouseListener(new MouseAdapter() {
+		         public void mouseClicked(MouseEvent me) {
+		            //call view(username1)
+		            System.out.println("CLICKED2");
+		         }
+		      });
+		    } else {
+		    label.addMouseListener(new MouseAdapter() {
+		     public void mouseClicked(MouseEvent me) {
+		            //call view(username1)
+		            System.out.println("CLICKED3");
+		         }
+		      });
+		    }
+		    myJFrame.add(label);
+		}
+	}
     
 }
