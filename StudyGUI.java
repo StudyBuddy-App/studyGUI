@@ -33,6 +33,7 @@ public class StudyGUI {
 	public List<User> myAllUsers;
 	public ArrayList<String> myClasses;
 	private int classNum;
+	public JTextField classID;
 
 
 	//	private static final Dimension SCREEN_SIZE = KIT.getScreenSize();
@@ -58,6 +59,7 @@ public class StudyGUI {
 		myFrame = new JFrame("Study Buddies");
 		myAllUsers = theUsers;
 		myClasses = theClasses;
+		classID = new JTextField(5);
 		JPanel homePanel = new JPanel(new GridLayout());
 		homePanel.setVisible(true);
 		homePanel.setPreferredSize(new Dimension(1, 500));
@@ -126,19 +128,20 @@ public class StudyGUI {
 		}
 		String num = classes.getText();
 		int count = Integer.parseInt(num);
-//		for(int i = 1; i <= count; i++) {
-			JTextField classID = new JTextField(5);
-			classNames.add(new JLabel("Class number"));
+		classNames.add(new JLabel("Class number"));
+		for(int i = 1; i <= count; i++) {
+		//	classNames.add(new JLabel("Class number"));
 			classNames.add(classID);
+			JOptionPane.showConfirmDialog(null, classNames, "Please Fill in classes", JOptionPane.OK_OPTION);
+			System.out.println("The class: " + classID.getText());
 
-//			myClasses.add(class1);	
+			//myClasses.add(classID.getText());
+			createNew.myClasses.add(classID.getText());
+	//		classID.setText("");
 //			System.out.println(myClasses);
-//		}
+		}
 		
-		createNew.setClasses(myClasses);
-		JOptionPane.showConfirmDialog(null, classNames, "Please Fill in classes", JOptionPane.OK_OPTION);
-		System.out.println("The class: " + classID.getText());
-		//		myClasses.clear();
+	//	createNew.setClasses(myClasses);
 		myFrame.pack();
 	}
 	

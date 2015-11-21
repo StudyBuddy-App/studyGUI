@@ -41,8 +41,7 @@ public final class StudyMain {
             }
         });
         
-
-        
+ 
     }
     
     public static void loadUsers(File theFile, ArrayList<String> theConnections, ArrayList<String> theClasses, ArrayList<User> theUsers) {
@@ -111,7 +110,8 @@ public final class StudyMain {
 			}
 			out.println();
 		}
-		
+		System.exit(0); 
     }
+    
     
 }
