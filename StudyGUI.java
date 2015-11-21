@@ -50,7 +50,6 @@ public class StudyGUI {
 		homePanel.setPreferredSize(new Dimension(500, 500));
 		myFrame.add(homePanel, BorderLayout.CENTER);
      
-
 		JOptionPane login = new JOptionPane();
 		login.showConfirmDialog(homePanel, "Login");
 		myFrame.add(login);      
@@ -180,7 +179,3 @@ public class StudyGUI {
 
 
 }
-
-
-
-
