@@ -58,5 +58,4 @@ public class User {
 			System.out.println("Friend already Removed!");
 		}
 	}
-
 }
