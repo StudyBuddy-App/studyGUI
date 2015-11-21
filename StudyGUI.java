@@ -95,25 +95,25 @@ public class StudyGUI {
 
 
 
-		JPanel myPanel = new JPanel();
+		JPanel myPanel = new JPanel(new GridLayout(6, 1));
 		JPanel classNames = new JPanel();
 
-		myPanel.add(new JLabel("First Name:"));
+		myPanel.add(new JLabel("First Name:               "));
 		myPanel.add(firstName);
 		myPanel.add(Box.createVerticalStrut(15)); // a spacer
-		myPanel.add(new JLabel("Last Name:"));
+		myPanel.add(new JLabel("Last Name:               "));
 		myPanel.add(lastName);
 		myPanel.add(Box.createVerticalStrut(15));
-		myPanel.add(new JLabel("User Name:"));
+		myPanel.add(new JLabel("User Name:               "));
 		myPanel.add(userName);
 		myPanel.add(Box.createVerticalStrut(15));
-		myPanel.add(new JLabel("School Name:"));
+		myPanel.add(new JLabel("School Name:             "));
 		myPanel.add(schoolName);
 		myPanel.add(Box.createVerticalStrut(15));
-		myPanel.add(new JLabel("Current Location:"));
+		myPanel.add(new JLabel("Current Location:        "));
 		myPanel.add(location);
 		myPanel.add(Box.createVerticalStrut(15));
-		myPanel.add(new JLabel("Number of Classes:"));
+		myPanel.add(new JLabel("Number of Classes:       "));
 		myPanel.add(classes);
 		
 		User createNew = null;
@@ -157,7 +157,7 @@ public class StudyGUI {
 		//loop until valid input
 		while(!logOn) {
 			final String logOnAttempt = JOptionPane.showInputDialog(null,
-					"Enter your log in", "or desired logon");
+					"Enter your UserName or click OK to make a new account", "UserName");
 			if(logOnAttempt ==null) {
 				System.exit(0);
 			}
@@ -166,7 +166,7 @@ public class StudyGUI {
 			for(int i = 0; i < myAllUsers.size(); i++) {
 				if(myAllUsers.get(i).myUserName.equals(logOnAttempt)) {
 					logOn = true;
-					System.out.println("Login Succesful, user found in userbase");
+					System.out.println("Login Successful! Welcome to StudyBuddy!");
 			        StudyMain.displayUsers();
 				}
 			}
@@ -175,9 +175,9 @@ public class StudyGUI {
 				int response;
 				//ask user if they are registered with yes no dialog
 				response = JOptionPane.showConfirmDialog(null,
-						"Are you registered", null, JOptionPane.YES_NO_OPTION);
+						"Create new account?", null, JOptionPane.YES_NO_OPTION);
 				//user misspelled logon
-				if(response == JOptionPane.YES_OPTION) {
+				if(response == JOptionPane.NO_OPTION) {
 					//do nothing
 				}
 				//sign the new user up
