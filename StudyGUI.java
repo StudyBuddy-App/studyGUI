@@ -38,6 +38,7 @@ public class StudyGUI {
 
 
 	public StudyGUI(ArrayList<User> theUsers, List<String> theClasses) {
+   /*
 		myFrame = new JFrame("Study Buddies");
 		myAllUsers = theUsers;
 		myClasses = theClasses;
@@ -47,10 +48,26 @@ public class StudyGUI {
 		homePanel.setVisible(true);
 		homePanel.setPreferredSize(new Dimension(500, 500));
 		myFrame.add(homePanel, BorderLayout.CENTER);
+     
 
 		JOptionPane login = new JOptionPane();
 		login.showConfirmDialog(homePanel, "Login");
+		myFrame.add(login);      
+      */
+      
+		myFrame = new JFrame("Study Buddies");
+		myAllUsers = theUsers;
+		JPanel homePanel = new JPanel(new GridLayout());
+		homePanel.setVisible(true);
+		homePanel.setPreferredSize(new Dimension(1, 500));
+		myFrame.add(homePanel, BorderLayout.CENTER);
+
+		/*
+		JOptionPane login = new JOptionPane();
+		login.showConfirmDialog(homePanel, "Login");
 		myFrame.add(login);
+		*/
+		demoInputDialog();
 	}
 	
 	public void homePage() {
@@ -116,12 +133,6 @@ public class StudyGUI {
 
 
 
-	/*
-	 * demoInputDialog() uses a joption pane to check for a valid Username. 
-	 * If the username is invalid (not in the list) then the user must is
-	 * notified and must repeat the process of logging in (after an error box). 
-	 * The user is given the ability to sign up if they dont yet have an account.
-	 */
 	public void demoInputDialog() {
 
 		boolean logOn = false; //what the user types is in as guess..valid user = true
@@ -129,11 +140,15 @@ public class StudyGUI {
 		while(!logOn) {
 			final String logOnAttempt = JOptionPane.showInputDialog(null,
 					"Enter your log in", "or desired logon");
+			if(logOnAttempt ==null) {
+				System.exit(0);
+			}
 
 			//user name is registered already
 			for(int i = 0; i < myAllUsers.size(); i++) {
 				if(myAllUsers.get(i).myUserName.equals(logOnAttempt)) {
 					logOn = true;
+					System.out.println("Logon Succesful, user found in userbase");
 				}
 			}
 			//user name is not registered 
@@ -155,11 +170,11 @@ public class StudyGUI {
 					logOn = true;
 				}
 			}
+			System.out.println("Looping");
 		}
 		//user must be logged on here...go on to splash page
 
 	}
-
 
 
 }
