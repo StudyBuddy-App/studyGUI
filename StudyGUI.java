@@ -32,6 +32,7 @@ public class StudyGUI {
 	private static final Toolkit KIT = Toolkit.getDefaultToolkit();
 	public List<User> myAllUsers;
 	public List<String> myClasses;
+	private int classNum;
 
 
 	//	private static final Dimension SCREEN_SIZE = KIT.getScreenSize();
@@ -57,6 +58,7 @@ public class StudyGUI {
       
 		myFrame = new JFrame("Study Buddies");
 		myAllUsers = theUsers;
+		myClasses = theClasses;
 		JPanel homePanel = new JPanel(new GridLayout());
 		homePanel.setVisible(true);
 		homePanel.setPreferredSize(new Dimension(1, 500));
@@ -105,18 +107,9 @@ public class StudyGUI {
 		myPanel.add(Box.createVerticalStrut(15));
 		myPanel.add(new JLabel("Number of Classes:"));
 		myPanel.add(classes);
-		String number = classes.getText();
-		int count = Integer.parseInt(number);
-		for(int i = 0; i < count; i++) {
-			JTextField classID = new JTextField(5);
-			classNames.add(new JLabel("Class number " + i + ": Course ID"));
-			classNames.add(classID);
-			myClasses.add(classID.getText());
-			
-			
-			
-			
-		}
+		
+		
+	//	classNum = Integer.parseInt(number);
 
 		int result = JOptionPane.showConfirmDialog(null, myPanel, 
 				"Please Fill in all information", JOptionPane.OK_CANCEL_OPTION);
@@ -124,6 +117,15 @@ public class StudyGUI {
 			User createNew = new User(userName.getText(), firstName.getText(), lastName.getText(),
 					schoolName.getText(), location.getText());
 			myAllUsers.add(createNew);
+		}
+		String num = classes.getText();
+		int count = Integer.parseInt(num);
+		for(int i = 1; i <= count; i++) {
+			JTextField classID = new JTextField(5);
+			classNames.add(new JLabel("Class number"));
+			classNames.add(classID);
+			String class1 = classID.getText();
+			myClasses.add(class1);	
 		}
 		JOptionPane.showConfirmDialog(null, classNames, "Please Fill in classes", JOptionPane.OK_OPTION);
 		myFrame.pack();
