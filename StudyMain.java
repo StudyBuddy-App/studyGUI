@@ -1,6 +1,7 @@
 import java.awt.EventQueue;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -36,7 +37,7 @@ public final class StudyMain {
 //                gui.start();
                 
                 System.out.println(myUserList);
-                
+                outputUsers(userFile, myUserList);
             }
         });
         
@@ -66,6 +67,27 @@ public final class StudyMain {
 		}	    catch (FileNotFoundException e) {
 	        e.printStackTrace();
 	    }
+    }
+    
+    public static void outputUsers(File theFile, ArrayList<User> theUsers) {
+    	PrintStream out = null;
+		
+		try 
+		{
+			out = new PrintStream(theFile);
+		} 
+		catch (FileNotFoundException e1) 
+		{
+			e1.printStackTrace();
+		}
+		
+		for(int i = 0; i < theUsers.size(); i++) {
+			User user = theUsers.get(i);
+			out.print(user.myUserName + " " + user.myFirstName + " " + user.myLastName + " " +
+			user.mySchool + " "+ user.myLocation);
+			out.println();
+		}
+		
     }
     
 }
