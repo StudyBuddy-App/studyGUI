@@ -7,6 +7,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.Timer;
 
 /**
@@ -18,11 +19,18 @@ import javax.swing.Timer;
 public class StudyGUI {
 	
 	private final JFrame myFrame;
+	private static final Toolkit KIT = Toolkit.getDefaultToolkit();
+
+	private static final Dimension SCREEN_SIZE = KIT.getScreenSize();
+
 	
     public StudyGUI() {
     	myFrame = new JFrame("Study Buddies");
     	myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        myFrame.setResizable(false);
+        myFrame.setLocation(SCREEN_SIZE.width / 2 - myFrame.getWidth() / 2,
+                SCREEN_SIZE.height / 2 - myFrame.getHeight() / 2);
+        myFrame.setResizable(true);
         myFrame.setVisible(true);
+        myFrame.pack();
     }
 }
