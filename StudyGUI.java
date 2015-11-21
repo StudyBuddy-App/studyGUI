@@ -34,14 +34,14 @@ public class StudyGUI {
 	//	private static final Dimension SCREEN_SIZE = KIT.getScreenSize();
 
 
-	public StudyGUI() {
-		allUsers = new ArrayList<User>();
-		myFrame = new JFrame("Study Buddies");
-		myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//        myFrame.setLocation(SCREEN_SIZE.width / 2 - myFrame.getWidth() / 2,
-		//                SCREEN_SIZE.height / 2 - myFrame.getHeight() / 2);
-		myFrame.setResizable(true);
-		myFrame.setVisible(true);
+    public StudyGUI(ArrayList<User> theUsers) {
+    	myFrame = new JFrame("Study Buddies");
+    	myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        myFrame.setLocation(SCREEN_SIZE.width / 2 - myFrame.getWidth() / 2,
+//                SCREEN_SIZE.height / 2 - myFrame.getHeight() / 2);
+        myFrame.setResizable(true);
+        myFrame.setVisible(true);
+		
 
 		JPanel homePanel = new JPanel(new GridLayout());
 		homePanel.setVisible(true);
@@ -88,26 +88,6 @@ public class StudyGUI {
 	
 //	private static final Dimension SCREEN_SIZE = KIT.getScreenSize();
 
-	
-    public StudyGUI(ArrayList<User> theUsers) {
-    	myFrame = new JFrame("Study Buddies");
-    	myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        myFrame.setLocation(SCREEN_SIZE.width / 2 - myFrame.getWidth() / 2,
-//                SCREEN_SIZE.height / 2 - myFrame.getHeight() / 2);
-        myFrame.setResizable(true);
-        myFrame.setVisible(true);
-        
-        JPanel homePanel = new JPanel(new GridLayout());
-        homePanel.setVisible(true);
-        homePanel.setPreferredSize(new Dimension(1, 500));
-        myFrame.add(homePanel, BorderLayout.CENTER);
-        
-        JOptionPane login = new JOptionPane();
-        login.showConfirmDialog(homePanel, "Login");
-        myFrame.add(login);
-        
-        myFrame.pack();
-    }
 }
 
 
