@@ -35,6 +35,7 @@ public class StudyGUI {
 
 
     public StudyGUI(ArrayList<User> theUsers) {
+    	allUsers = theUsers;
     	myFrame = new JFrame("Study Buddies");
     	myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        myFrame.setLocation(SCREEN_SIZE.width / 2 - myFrame.getWidth() / 2,
@@ -80,8 +81,9 @@ public class StudyGUI {
 		int result = JOptionPane.showConfirmDialog(null, myPanel, 
 				"Please Fill in all information", JOptionPane.OK_CANCEL_OPTION);
 		if (result == JOptionPane.OK_OPTION) {
-			User createNew = new User(firstName.getText(), lastName.getText(), userName.getText(),
+			User createNew = new User(userName.getText(), firstName.getText(), lastName.getText(),
 										schoolName.getText(), location.getText());
+			allUsers.add(createNew);
 		}
 		myFrame.pack();
 	}

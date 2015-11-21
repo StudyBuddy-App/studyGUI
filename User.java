@@ -4,20 +4,24 @@ import java.util.List;
 
 
 public class User {
+	String myUserName;
 	String myFirstName;
 	String myLastName;
 	String mySchool;
+	String myLocation;
 	Image myImage;
 	List<String> myClasses;
 	List<User> myFriends;
 	
 	
 	
-	public User(String theFirstName, String theLastName, String theSchool, String string,
-				String string2) {
+	public User(String theUserName, String theFirstName, String theLastName, String theSchool,
+				String theLocation) {
+		myUserName = theUserName;
 		myFirstName = theFirstName;
 		myLastName = theLastName;
 		mySchool = theSchool;
+		myLocation = theLocation;
 //		myImage = string;
 		myClasses = new ArrayList<String>();
 	}
@@ -57,5 +61,9 @@ public class User {
 		} else {
 			System.out.println("Friend already Removed!");
 		}
+	}
+	
+	public String toString() {
+		return myFirstName + " " + myLastName;
 	}
 }

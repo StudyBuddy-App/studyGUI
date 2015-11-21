@@ -34,8 +34,14 @@ public final class StudyMain {
                 
                 final StudyGUI gui = new StudyGUI(myUserList);
 //                gui.start();
+                
+                System.out.println(myUserList);
+                
             }
         });
+        
+
+        
     }
     
     public static void loadUsers(File theFile, ArrayList<String> theConnections, ArrayList<String> theClasses, ArrayList<User> theUsers) {
@@ -46,15 +52,16 @@ public final class StudyMain {
 	        	String firstName = s.next();
 	        	String lastName = s.next();
 	        	String school = s.next();
-	        	int numClasses = s.nextInt();
-	        	for(int i = 0; i < numClasses; i++) {
-	        		theClasses.add(s.next());
-	        	}
-	        	int numConnections = s.nextInt();
-	        	for(int i = 0; i < numConnections; i++) {
-	        		theConnections.add(s.nextLine());
-	        	}
-//	        	theUsers.add(new User(firstName, lastName, school, null, theClasses));
+	        	String location = s.next();
+//	        	int numClasses = s.nextInt();
+//	        	for(int i = 0; i < numClasses; i++) {
+//	        		theClasses.add(s.next());
+//	        	}
+//	        	int numConnections = s.nextInt();
+//	        	for(int i = 0; i < numConnections; i++) {
+//	        		theConnections.add(s.nextLine());
+//	        	}
+	        	theUsers.add(new User(userName, firstName, lastName, school, location));
 	        }
 		}	    catch (FileNotFoundException e) {
 	        e.printStackTrace();
